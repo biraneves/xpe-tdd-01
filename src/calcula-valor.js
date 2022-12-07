@@ -17,14 +17,16 @@ function calcularPrestacoes(montante, numeroParcelas) {
     const resultado = Array(numeroParcelas).fill(prestacaoBase);
 
     let somaPrestacoes = resultado.reduce((a, t) => a + t);
-    let diferenca = montante - somaPrestacoes;
-    let i = 0;
+    let diferenca = arredondar(montante - somaPrestacoes);
+    const fator = diferenca > 0 ? 1 : -1;
 
-    while (diferenca != 0) {
-        resultado[i] += 0.01;
+    let i = diferenca > 0 ? 0 : resultado.length - 1;
+
+    while (diferenca !== 0) {
+        resultado[i] += arredondar(0.01 * fator);
         somaPrestacoes = resultado.reduce((a, t) => a + t);
-        diferenca = montante - somaPrestacoes;
-        i++;
+        diferenca = arredondar(montante - somaPrestacoes);
+        i += fator;
     }
 
     return resultado;

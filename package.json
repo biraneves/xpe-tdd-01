@@ -13,7 +13,7 @@
         "supertest": "^6.3.2"
     },
     "scripts": {
-        "test": "jest --coverage",
+        "test": "jest",
         "lint": "eslint src/** test/**",
         "watch": "jest --watch",
         "dev": "node src/server.js"

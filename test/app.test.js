@@ -35,7 +35,29 @@ describe('Testes de integração', () => {
         expect(res.status).toBe(200);
     });
 
-    // TODO: Teste do Cenário 1
+    test('Cenário 1', async () => {
+        const res = await request
+            .post('/consulta-credito')
+            .send(payloadRequest);
+
+        // Resultado é obtido com sucesso
+        expect(res.body.erro).toBeUndefined();
+        expect(res.body.montante).toBe(106.9);
+        expect(res.body).toMatchSnapshot(resultadoEsperado);
+        expect(res.status).toBe(201);
+
+        // Cliente foi persistido
+        const cliente = await db.cliente.findOne({
+            where: { CPF: clienteJoao.CPF },
+        });
+        expect(cliente.CPF).toBe(clienteJoao.CPF);
+
+        // Consulta foi persistida
+        const consulta = await db.consulta.findOne({
+            where: { ClienteCPF: clienteJoao.CPF },
+        });
+        expect(consulta.Valor).toBe(101.75);
+    });
 
     test('Cenário 2', async () => {
         db.cliente.create(clienteJoao);

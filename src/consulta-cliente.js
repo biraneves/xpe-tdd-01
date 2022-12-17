@@ -22,7 +22,7 @@ const consultar = async (nome, cpf, valor, parcelas) => {
 
     if (ultimaConsulta) {
         const diferenca = Math.abs(
-            ultimaConsulta.getTime() - new Date().getTime(),
+            ultimaConsulta.createdAt.getTime() - new Date().getTime(),
         );
         const diferencaDias = Math.round(diferenca / (1000 * 60 * 60 * 24));
 

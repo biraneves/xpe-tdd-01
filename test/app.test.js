@@ -36,7 +36,7 @@ describe('Testes de integração', () => {
     });
 
     test('Cenário 1', async () => {
-        const res = await request
+        const res = await request(app)
             .post('/consulta-credito')
             .send(payloadRequest);
 

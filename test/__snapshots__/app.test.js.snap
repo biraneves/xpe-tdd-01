@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testes de integração Cenário 2 1`] = `
+{
+  "juro": 0.025,
+  "montante": 106.9,
+  "parcelas": 3,
+  "prestacoes": [
+    35.64,
+    35.63,
+    35.63,
+  ],
+  "primeiraPrestacao": 35.64,
+}
+`;
+
+exports[`Testes de integração Cenário 3 1`] = `
+{
+  "juro": 0.025,
+  "montante": 106.9,
+  "parcelas": 3,
+  "prestacoes": [
+    35.64,
+    35.63,
+    35.63,
+  ],
+  "primeiraPrestacao": 35.64,
+}
+`;

@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize({
     dialect: 'postgres',
     host: 'localhost',
-    port: 49153,
+    port: 55000,
     database: 'xpe_consulta_credito',
     username: 'postgres',
     password: 'mysecretpassword',
